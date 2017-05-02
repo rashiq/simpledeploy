@@ -23,8 +23,8 @@ def execute_steps(repository):
     config = json.loads(f.read())
   match = filter(lambda x: x['repository'] == repository, config)
   if not match: return
-  steps = match[0]['steps']
-  for step in steps: os.system(step)
+  steps = ' && '.join(match[0]['steps'])
+  os.system(steps)
 
 if __name__ == '__main__':
   app.run(debug=True)
