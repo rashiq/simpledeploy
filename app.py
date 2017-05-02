@@ -1,4 +1,5 @@
 import os
+import hmac
 import json
 import hashlib
 from flask import Flask, request, abort
@@ -14,9 +15,10 @@ def hook():
 
 def check_signature(request):
   secret = os.environ.get('GITHUB_SECRET', '')
-  digest = 'sha1=' + hashlib.sha1(secret).hexdigest()
   signature = request.headers.get('X-Hub-Signature')
-  return digest == signature
+  if not signature: return False
+  mac = hmac.new(secret, request.data, hashlib.sha1).hexdigest()
+  return hmac.compare_digest("sha1=" + mac, str(signature))
 
 def execute_steps(repository):
   with open('config.json', 'r') as f:
