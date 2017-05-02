@@ -3,6 +3,7 @@ import hmac
 import json
 import hashlib
 from flask import Flask, request, abort
+from utils import compare_digest
 
 app = Flask(__name__)
 
@@ -18,7 +19,7 @@ def check_signature(request):
   signature = request.headers.get('X-Hub-Signature')
   if not signature: return False
   mac = hmac.new(secret, request.data, hashlib.sha1).hexdigest()
-  return hmac.compare_digest("sha1=" + mac, str(signature))
+  return compare_digest("sha1=" + mac, str(signature))
 
 def execute_steps(repository):
   with open('config.json', 'r') as f:
