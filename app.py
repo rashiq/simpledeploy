@@ -13,8 +13,8 @@ def hook():
   return ('', 204)
 
 def check_signature(request):
-  token = os.environ['GITHUB_TOKEN']
-  digest = 'sha1=' + hashlib.sha1(token).hexdigest()
+  secret = os.environ.get('GITHUB_SECRET', '')
+  digest = 'sha1=' + hashlib.sha1(secret).hexdigest()
   signature = request.headers.get('X-Hub-Signature')
   return digest == signature
 
