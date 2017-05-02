@@ -1,0 +1,9 @@
+[
+  {
+    "repository": "rashiq.me",
+    "steps": [
+      "cd /srv/rashiq.me/html",
+      "git pull"
+    ]
+  }
+]
