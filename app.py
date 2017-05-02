@@ -7,7 +7,7 @@ app = Flask(__name__)
 
 @app.route('/', methods=['POST'])
 def hook():
-  if not check_signature(): abort(403)
+  if not check_signature(request): abort(403)
   repository = request.get_json()['repository']['name']
   execute_steps(repository)
   return ('', 204)
