@@ -11,7 +11,8 @@ Sample `config.json` file:
     "repository": "rashiq.me",
     "steps": [
       "cd /srv/rashiq.me/html",
-      "git pull"
+      "git pull",
+      "docker restart flask"
     ]
   }
 ]
