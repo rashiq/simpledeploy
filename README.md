@@ -20,4 +20,4 @@ Sample `config.json` file:
 
 This will just update my website.
 
-<img src="https://derpixel.com/simpledeploy-gh.png" width="0px" height="0px" style="display:none;"/>
+<img src="https://analytics.rashiq.me/simpledeploy-gh.png" width="0px" height="0px" style="display:none;"/>
