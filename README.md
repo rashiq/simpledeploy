@@ -1,7 +1,6 @@
 # simpledeploy
 
-A simple flask app that serves as a webhook for github to send a post request to whenever something was pushed to one of my repositories.
-So I can then run custom logic defined in my `config.json` file. I currently have mine running on https://deploy.rashiq.me.
+A simple flask app that registers a webhook with github, So I can update my website everytime I push something. I currently have mine running on https://deploy.rashiq.me.
 
 Sample `config.json` file:
 
